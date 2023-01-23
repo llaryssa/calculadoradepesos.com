@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+const Input = styled.input`
+  height: 36px;
+  font-size: 22px;
   background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
+  border: none;
+  color: ${(props) => props.theme.text};
+  outline: none;
+  border-bottom: 1px solid ${(props) => props.theme.darkerBackground};
 `;
 
-export default Button;
+const NumberInput = (props) => <Input type='number' {...props} />;
+
+export default NumberInput;

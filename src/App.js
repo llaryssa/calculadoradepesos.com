@@ -1,30 +1,48 @@
+import { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import Credits from "./Credits";
-import SectionTitle from "./shared-components/SectionTitle";
+import NavButtons from "./NavButtons";
+import WeightAndBarbellDetails from "./steps/WeightAndBarbellDetails";
 import theme from "./theme";
 
 // import Button from "./shared-components/NumberInput";
 
 const AppContainer = styled.div`
-  // background-color: #023047;
   padding: 24px;
+  height: 100%;
 `;
 
 const Title = styled.h1``;
 
-function App() {
+const Steps = {
+  WeightAndBarbellDetails: 0,
+  Percentages: 1,
+  Result: 2,
+};
+
+const App = () => {
+  const [step, setStep] = useState(Steps.WeightAndBarbellDetails);
+
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
         <Title>Calculadora de Pesos</Title>
 
-        {/* Move it to first step */}
-        <SectionTitle title='Peso e barra' number={1} />
+        {step === Steps.WeightAndBarbellDetails && <WeightAndBarbellDetails />}
+
+        <button onClick={() => setStep((currStep) => currStep - 1)}>
+          prev
+        </button>
+        <button onClick={() => setStep((currStep) => currStep + 1)}>
+          next
+        </button>
+
+        <NavButtons onBack={console.log} onNext={console.log} />
 
         <Credits />
       </AppContainer>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

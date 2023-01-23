@@ -1,8 +1,22 @@
 body {
   margin: 0;
-  font-family: "Helvetica Neue", "Roboto", "Helvetica Neue", sans-serif;
+  /* font-family: "Helvetica Neue", "Roboto", "Helvetica Neue", sans-serif; */
+  font-family: "Readex Pro", serif;
+  font-weight: 500 !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #021531;
   color: white;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+}
+
+html,
+body,
+.root {
+  height: 100%;
 }
